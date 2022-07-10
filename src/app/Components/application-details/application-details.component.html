@@ -1,0 +1,59 @@
+<div class="container container-fluid">
+    <h1>Applications List</h1>
+    
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">cardNo.</th>
+        <th scope="col">issuer</th>
+        <th scope="col">amount</th>
+        <th scope="col">trans type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of cardsAndTrans">
+        <th >{{element.cardNo}}</th>
+        <td> {{element.issuer}}</td>
+        <td>{{element.amount|currency}}</td>
+        <td>{{element.transType|transType}}</td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+
+    <!-- <table mat-table [dataSource]="cardsAndTrans" class="mat-elevation-z8">
+    
+      
+        <ng-container matColumnDef="cardNo">
+          <th mat-header-cell *matHeaderCellDef>cardNo. </th>
+          <td mat-cell *matCellDef="let element"> {{element.cardNo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="issuer">
+          <th mat-header-cell *matHeaderCellDef> issuer </th>
+          <td mat-cell *matCellDef="let element"> {{element.issuer}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amount|currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="transType">
+            <th mat-header-cell *matHeaderCellDef> Trans Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.transType|transType}} </td>
+          </ng-container>
+      
+    
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+      </table> -->
+      
+    </div>
+      
+    
