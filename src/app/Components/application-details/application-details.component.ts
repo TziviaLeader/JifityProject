@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Application } from 'src/app/Classes/application';
 import { Card } from 'src/app/Classes/card';
 import { CardAndTarns } from 'src/app/Classes/card-and-tarns';
 import { Trans } from 'src/app/Classes/trans';
@@ -14,6 +15,8 @@ import { HttpService } from 'src/app/Services/http.service';
 export class ApplicationDetailsComponent implements OnInit ,OnDestroy{
 
   subscription:Subscription=new Subscription;
+  subject:Subscription=new Subscription;
+  myApplication:Application=new Application(0,'','');
   cardsList:Array<Card>=[];
   transList:Array<Trans>=[];
   cardsAndTrans:Array<CardAndTarns>=[];
@@ -31,7 +34,10 @@ export class ApplicationDetailsComponent implements OnInit ,OnDestroy{
       }
       
     });
-    debugger;
+    this.subject= this.ser.getApplication$().subscribe(s=>{
+      debugger
+      this.myApplication=s;
+    })
   }
 
   ngOnInit(): void {
@@ -48,5 +54,6 @@ export class ApplicationDetailsComponent implements OnInit ,OnDestroy{
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.subject.unsubscribe();
   }
 }

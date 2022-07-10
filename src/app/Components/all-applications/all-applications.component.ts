@@ -28,6 +28,7 @@ export class AllApplicationsComponent implements OnInit,OnDestroy {
   }
 
   func(row:any){
+    this.ser.seApplication$(row);
     this.route.navigate(["/applicationDetails",row.id])
   }
 
