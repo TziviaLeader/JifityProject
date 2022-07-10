@@ -11,14 +11,12 @@ import { Application } from '../Classes/application';
 export class HttpService {
 
   env = environment
-  private application$:Subject<Application>=new Subject();
+  private application$:Subject<Application>=new Subject<Application>();
   
   public getApplication$() : Observable<Application> {
-    debugger
     return this.application$.asObservable();
   }
   public seApplication$(app : Application) {
-    debugger
     this.application$.next(app);
   }
   
@@ -28,7 +26,6 @@ export class HttpService {
   }
 
   getApplications(): Observable<any> {
-    debugger
     return this.serHttp.get<any>(this.env.BASE_URL + 'applications');
   }
 

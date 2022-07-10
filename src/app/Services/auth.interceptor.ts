@@ -17,7 +17,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler) {
-    debugger
     // const AuthorizationKey="9874654654987654658";
     const authRequst = request.clone({
       // headers: request.headers.set('Authorization', this.env.AUTHORIZATION_KEY)
